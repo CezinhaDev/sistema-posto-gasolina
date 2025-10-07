@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,6 +17,7 @@ public class FuelSales {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY) // generates automatically
     private Long id;
 
+    @ManyToOne // Many sales can be associated with one fuel type
     private Fuel fuel;
     private BigDecimal litersSold;
     private BigDecimal totalPrice;
