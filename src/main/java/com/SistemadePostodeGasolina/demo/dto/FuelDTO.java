@@ -1,35 +1,25 @@
-package com.SistemadePostodeGasolina.demo.entity;
+package com.SistemadePostodeGasolina.demo.dto;
 
 import java.math.BigDecimal;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "fuel") // name of the table in database
-public class Fuel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // generates automatically
+public class FuelDTO {
     private Long id;
-
     private String name;
     private BigDecimal priceForLiter;
     private BigDecimal quantityInLiters;
 
-    public Fuel() {
-    }
+    // Construtor padrão
+    public FuelDTO() {}
 
-    public Fuel(Long id, String name, BigDecimal priceForLiter, BigDecimal quantityInLiters) {
+    // Construtor com entidade (facilita conversão)
+    public FuelDTO(Long id, String name, BigDecimal priceForLiter, BigDecimal quantityInLiters) {
         this.id = id;
         this.name = name;
         this.priceForLiter = priceForLiter;
         this.quantityInLiters = quantityInLiters;
     }
 
+    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -61,5 +51,4 @@ public class Fuel {
     public void setQuantityInLiters(BigDecimal quantityInLiters) {
         this.quantityInLiters = quantityInLiters;
     }
-
 }
